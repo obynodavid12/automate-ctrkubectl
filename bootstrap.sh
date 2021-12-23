@@ -43,14 +43,14 @@ sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main" >
 
 echo "[TASK 7] Install Kubernetes components (kubeadm, kubelet and kubectl)"
 sudo apt-get update
-sudo apt install -qq -y kubeadm=1.22.0-00 kubelet=1.22.0-00 kubectl=1.22.0-00 >/dev/null 2>&1
+sudo apt install -qq -y kubeadm=1.23.0-00 kubelet=1.23.0-00 kubectl=1.23.0-00 >/dev/null 2>&1
 
-echo "[TASK 8] Set up sudo"
-sudo echo vagrant ALL=NOPASSWD:ALL > /etc/sudoers.d/vagrant
-sudo chmod 755 /etc/sudoers.d/vagrant
+# echo "[TASK 8] Set up sudo"
+# sudo echo vagrant ALL=NOPASSWD:ALL > /etc/sudoers.d/vagrant
+# sudo chmod 755 /etc/sudoers.d/vagrant
 
-echo "[TASK 9] Setup sudo to allow no-password sudo"
-sudi usermod -a -G sudo vagrant
+# echo "[TASK 9] Setup sudo to allow no-password sudo"
+# sudo usermod -a -G sudo vagrant
 
 echo "[TASK 10] Enable ssh password authentication"
 sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
